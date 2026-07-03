@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/axiosClient";
 import { useAuth } from "../context/AuthContext";
+import TicketDownload from "../components/TicketDownload";
 
 export default function MyBookings() {
   const { user } = useAuth();
@@ -46,9 +47,10 @@ export default function MyBookings() {
               <p>💰 ₹{b.totalPrice?.toLocaleString()}</p>
               <div className="booking-footer">
                 <span className={`status status-${b.status}`}>{b.status.replace("_", " ")}</span>
-                {b.status === "confirmed" && (
-                  <button className="cancel-btn" onClick={() => handleCancel(b._id)}>Cancel</button>
-                )}
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  {b.status === "confirmed" && <TicketDownload booking={b} />}
+                  {b.status === "confirmed" && <button className="cancel-btn" onClick={() => handleCancel(b._id)}>Cancel</button>}
+                </div>
               </div>
             </div>
           </div>

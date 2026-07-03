@@ -504,3 +504,6 @@ cat >> ~/Desktop/"travel-booking 2"/frontend/src/index.css << 'EOF'
 .booking-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 0.6rem; }
 .cancel-btn { background: #fde8e8; color: #c0392b; border: none; padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
 .cancel-btn:hover { background: #f8d7da; }
+
+.ticket-btn { background: #f0f5ff; color: #1a4d8f; border: 1px solid #1a4d8f; padding: 0.35rem 0.8rem; border-radius: 4px; font-size: 0.82rem; font-weight: 600; cursor: pointer; }
+.ticket-btn:hover { background: #1a4d8f; color: white; }
