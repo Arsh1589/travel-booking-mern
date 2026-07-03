@@ -1,14 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import NotificationBell from "./NotificationBell";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  function handleLogout() {
-    logout();
-    navigate("/login");
-  }
+  function handleLogout() { logout(); navigate("/login"); }
 
   return (
     <nav className="navbar">
@@ -18,6 +16,7 @@ export default function Navbar() {
         {user && <Link to="/bookings">My Bookings</Link>}
         {user && <Link to="/profile">Profile</Link>}
         {user?.role === "admin" && <Link to="/admin">Admin</Link>}
+        {user && <NotificationBell />}
         {user ? (
           <>
             <span className="nav-user">Hi, {user.name.split(" ")[0]}</span>
